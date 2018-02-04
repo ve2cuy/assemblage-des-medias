@@ -1,0 +1,317 @@
+------------------------
+------- Étape 1 --------
+------------------------
+
+0 - Aller au dossier de travail de l'utilisateur courant (etudiant) et télécharger le projet git à l'adresse:
+
+    https://github.com/ve2cuy/assemblage-des-medias
+
+    git clone https://github.com/ve2cuy/assemblage-des-medias
+
+1 - Renseigner le masque des droits (umask) pour que les fichiers que vous allez créer
+se voient attribuer les droits suivants: rwxr-x---
+
+
+1.2 - Tester le masque:
+
+      touch test
+      mkdir test2
+      ls -l
+
+Vous devez obtenir le résultat suivant:
+
+-rw-r----- 1 etudiant etudiant    0 fév  4 10:43 test
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 10:43 test2
+
+Si ce n'est pas le cas il faut effacer test et test2, modifier le masque (umask) et recommencer.
+
+1.3 - Effacer, avec une seule commande, le fichier test et le dossier test2
+
+
+2 - Créer le dossier labo02
+
+
+3 - Entrer dans le dossier labo02
+
+
+4 - Créer les dossiers suivants:
+
+    projetweb
+    design
+    gestion
+    chargésDeProjets
+    temp
+
+    Note: Il est possible de les créer en une seule commande.
+
+5 - Créer les fichiers suivants (vides) dans le dossier projetweb:
+
+    page01.html page02.html apropos.html
+
+    Note: Il est possible de les créer en une seule commande.
+
+
+5.1 Copier le fichier ~/assemblage-des-medias/index.html vers le dossier projetweb
+
+
+5.2 Afficher le contenu du dossier projetweb
+
+    etudiant@etudiant-VirtualBox:~/labo02$ ls -l  projetweb/
+    total 4
+    -rw-r----- 1 etudiant etudiant  0 fév  4 12:49 apropos.html
+    -rw-r----- 1 etudiant etudiant 55 fév  4 12:48 index.html
+    -rw-r----- 1 etudiant etudiant  0 fév  4 12:49 page01.html
+    -rw-r----- 1 etudiant etudiant  0 fév  4 12:49 page02.html
+
+6 - Désarchiver les fichiers de 
+
+    ~/assemblage-des-medias/les_images.tar.gz 
+    
+    dans le dossier
+
+    ~/labo02/temp
+
+    Astuce: être dans le dossier temp pour exécuter la commande
+
+
+6.1 - Déplacer le dossier temp/images vers dans le dossier ~/labo02/design :
+
+
+6.2 - Afficher le contenu du dossier design/images:  
+
+    $ ls ~/labo02/design/images   
+
+    Vous devrier obtenir résultat suivant:
+
+    etudiant@etudiant-VirtualBox:~/labo02/temp$ ls ~/labo02/design/images/
+    image01.png  image02.png  image03.png  image04.png
+    etudiant@etudiant-VirtualBox:~/labo02/temp$ 
+
+
+7 - Renommer le fichier design/images/image01.png à logo.png
+
+
+7.1 -  - Afficher le contenu du dossier design/images:  
+
+    etudiant@etudiant-VirtualBox:~/labo02/temp$ ls ~/labo02/design/images/
+    image02.png  image03.png  image04.png  logo.png
+
+8 - Copier le fichier README.md vers le dossier temp
+
+
+9 - Permettre à tous (other) l'accès au fichier temp/README.MD en mode lecture
+
+
+9.1 - Vérifier les droits des fichiers du dossier temp:
+
+    etudiant@etudiant-VirtualBox:~/labo02/temp$ ls -l
+    total 4
+    -rw-r--r-- 1 etudiant etudiant 50 fév  4 13:09 README.md
+
+10 - Créer un lien symbolique dans le dossier labo02, pointant sur le fichier temp/README.MD, nommé 'lisez.moi'
+
+
+10.1 Vérifier la présence du lien, dans le dossier labo02, avec la commande ls -l:
+
+    lrwxrwxrwx 1 etudiant etudiant   14 fév  4 13:13 lisez.moi -> temp/README.md
+
+------------------------
+--- Fin de l'étape 1 ---
+------------------------
+
+------------------------------------------------------------------
+À la fin de cette étape vous devriez avoir la structure suivante:
+------------------------------------------------------------------
+
+etudiant@etudiant-VirtualBox:~/labo02$ ls -lR
+.:
+total 20
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 11:40 chargésDeProjets
+drwxr-x--- 3 etudiant etudiant 4096 fév  4 13:02 design
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 11:40 gestion
+lrwxrwxrwx 1 etudiant etudiant   14 fév  4 13:13 lisez.moi -> temp/README.md
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 12:56 projetweb
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 13:09 temp
+
+./chargésDeProjets:
+total 0
+
+./design:
+total 4
+drwxr-x--- 2 etudiant etudiant 4096 fév  4 13:07 images
+
+./design/images:
+total 288
+-rw-r----- 1 etudiant etudiant 174132 déc  4 15:36 image02.png
+-rw-r----- 1 etudiant etudiant  84210 nov 30 15:29 image03.png
+-rw-r----- 1 etudiant etudiant  18399 nov 30 16:26 image04.png
+-rw-r----- 1 etudiant etudiant   9960 déc  4 15:37 logo.png
+
+./gestion:
+total 0
+
+./projetweb:
+total 4
+-rw-r----- 1 etudiant etudiant  0 fév  4 12:49 apropos.html
+-rw-r----- 1 etudiant etudiant 55 fév  4 12:48 index.html
+-rw-r----- 1 etudiant etudiant  0 fév  4 12:49 page01.html
+-rw-r----- 1 etudiant etudiant  0 fév  4 12:49 page02.html
+
+./temp:
+total 4
+-rw-r--r-- 1 etudiant etudiant 50 fév  4 13:09 README.md
+------------------------------------------------------------------
+
+
+------------------------
+------- Étape 2 --------
+------------------------
+
+
+11 - Tester l'accès (cat) au fichier temp/README.MD, via le lien lisez.moi, en utilisant le compte 'toto'
+
+    Connectez-vous au compte 'toto' via une nouvelle session ssh.
+
+
+12 - Créer les groupes suivants: 
+
+    programmeurs 
+    designers 
+    gestionnaires
+
+    Note: Une commande par groupe
+
+
+12.1 Valider la présence des nouveaux groupes en affichant le contenu du fichier /etc/group
+
+    Vous devrier obtenir un résultat semblable à ceci:
+
+    ...
+    programmeurs:x:1002:
+    designers:x:1003:
+    gestionnaires:x:1004:
+
+
+13 - Créer les utilisateurs suivants (mot de passe = z):
+
+    programmeur1, programmeur2
+    designer1, designer2
+    integrateur1, gestionnaire1
+
+    sudo adduser programmeur1
+    ...
+
+13.1 Valider la présence des nouveaux utilisateurs en affichant le contenu du fichier /etc/passwd
+
+    ...
+    programmeur1:x:1002:1005:,,,:/home/programmeur1:/bin/bash
+    programmeur2:x:1003:1006:,,,:/home/programmeur2:/bin/bash
+    designer1:x:1004:1007:,,,:/home/designer1:/bin/bash
+    designer2:x:1005:1008:,,,:/home/designer2:/bin/bash
+    integrateur1:x:1006:1009:,,,:/home/integrateur1:/bin/bash
+    gestionnaire1:x:1007:1010:,,,:/home/gestionnaire1:/bin/bash    
+
+13.2 Ajouter le compte etudiant aux groupes gestionnaire1, gestionnaires, designers et programmeurs
+
+    sudo adduser etudiant programmeurs
+    sudo adduser etudiant gestionnaire1 
+    sudo adduser etudiant designers
+    sudo adduser etudiant gestionnaires
+
+    Note: Il faut se reloguer pour que les changements soient appliqués
+
+13.3 Se reloguer au compte etudiant et vérifier ses groupes avec la commande 'groups'.
+ 
+    etudiant@etudiant-VirtualBox:~/labo02$ groups
+    etudiant adm cdrom sudo dip plugdev lpadmin sambashare programmeurs designers gestionnaires gestionnaire1
+
+14 - Ajouter les programmeurs au groupe programmeurs
+
+
+15 - Ajouter les designers au groupe designers
+    
+
+16 - Ajouter l'integrateur aux groupes: programmeurs designers
+
+
+17 - Ajouter le gestionnaire aux groupes: programmeurs designers gestionnaires
+
+
+17.1 - Vérifier les membres des groupes: programmeurs designers gestionnaires
+
+    Noter: La commande 'members nomGroupe' permet d'afficher le membership d'un groupe.
+
+    Par exemple,
+
+    $ members programmeurs
+
+    devrait afficher: 
+
+    programmeur1 programmeur2 integrateur1 gestionnaire1
+
+    La commande 'members' n'est pas installée par défaut sur la distribution Ubuntu desktop.
+
+    Au besoin, utiliser la commande 'apt' pour l'installer.
+
+
+18 - Modifier les propriétaires et droits des fichiers/dossiers selon le tableau suivant:
+
+etudiant@etudiant-VirtualBox:~/labo02$ ls -lR
+
+drwxr-x--- 2 integrateur1  gestionnaire1 4096 fév  4 11:40 chargésDeProjets
+drwxrwx--- 3 designer1     designers     4096 fév  4 13:02 design
+drwxr-x--- 2 gestionnaire1 gestionnaires 4096 fév  4 11:40 gestion
+lrwxrwxrwx 1 etudiant      etudiant        14 fév  4 13:13 lisez.moi -> temp/README.md
+drwxrwx--- 2 designer2     programmeurs  4096 fév  4 12:56 projetweb
+drwxr-x--x 2 etudiant      etudiant      4096 fév  4 13:09 temp
+
+./design:
+drwxrwx--- 2 designer1 designers 4096 fév  4 13:07 images
+
+./design/images:
+-rw-rw---- 1 designer1 designers 174132 déc  4 15:36 image02.png
+-rw-rw---- 1 designer1 designers  84210 nov 30 15:29 image03.png
+-rw-rw---- 1 designer1 designers  18399 nov 30 16:26 image04.png
+-rw-rw---- 1 designer1 designers   9960 déc  4 15:37 logo.png
+
+./projetweb:
+-rw-rw---- 1 designer2 programmeurs  0 fév  4 12:49 apropos.html
+-rw-rw---- 1 designer2 programmeurs 55 fév  4 12:48 index.html
+-rw-rw---- 1 designer2 programmeurs  0 fév  4 12:49 page01.html
+-rw-rw---- 1 designer2 programmeurs  0 fév  4 12:49 page02.html
+
+    sudo chown integrateur1:gestionnaire1 chargésDeProjets/
+    sudo chown -R designer2:programmeurs projetweb/
+    sudo chown gestionnaire1:gestionnaires gestion
+    sudo chown -R designer1:designers design
+
+    sudo chmod -R  g+w design
+    sudo chmod -R  g+w projetweb/
+
+19 - Tester les droits de l'utilisateur 'gestionnaire1'
+
+    Ouvrir une session avec le compte gestionnaire1.
+    Aller au dossier /home/etudiant/labo02/chargésDeProjets
+    Exécuter la commande 'touch unTest'
+
+    Observer la situation.
+
+    Corriger les droits pour que gestionnaire1 puisse créer des fichiers dans le dossier chargésDeProjets.
+
+    Note: Ne pas modifier les propriétaires.
+
+20 - De la session 'etudiant', créer un fichier '~/labo02/liste.txt' contenant le résultat de la commande:
+
+    ls -lR ~/labo02/
+
+    ls -lR ~/labo02/ > ~/labo02/liste.txt
+
+21 - Ouvrir la page index.html avec le fureteur lynx
+
+22 - Supprimer l'application 'lynx'
+  
+------------------------
+--- Fin de l'étape 2 ---
+------------------------
+
+** Le mot de passe du solutionnaire est: ilfitd.l.sorte
